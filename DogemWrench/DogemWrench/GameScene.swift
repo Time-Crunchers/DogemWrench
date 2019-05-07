@@ -90,24 +90,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         
-        makeSlot(at: CGPoint(x: 450, y: 0), isGood: false)
+      //  makeSlot(at: CGPoint(x: 450, y: 0), isGood: false)
         
-        makeBouncer(at: CGPoint(x:500, y: 650))
-        makeBouncer(at: CGPoint(x:250, y: 650))
-        makeBouncer(at: CGPoint(x:375, y: 800))
+      //  makeBouncer(at: CGPoint(x:500, y: 650))
+      //  makeBouncer(at: CGPoint(x:250, y: 650))
+       // makeBouncer(at: CGPoint(x:375, y: 800))
         
         
-        rightFlipperCreate()
-        leftFlipperCreate()
-        makeBouder(at: CGPoint(x:675, y: 295))
+      //  rightFlipperCreate()
+      //  leftFlipperCreate()
+      //  makeBouder(at: CGPoint(x:675, y: 295))
         makeLauncher(at: CGPoint(x:710, y: 0))
-        makeSlopeRight(at: CGPoint(x:700, y: 890))
-        makeSlopeLeft(at: CGPoint(x:100, y: 890))
-        makeRectangle(at: CGPoint(x: 400, y: 1045))
+      //  makeSlopeRight(at: CGPoint(x:700, y: 890))
+      //  makeSlopeLeft(at: CGPoint(x:100, y: 890))
+     //   makeRectangle(at: CGPoint(x: 400, y: 1045))
         // makeGuardLeft(at: CGPoint(x:100, y: 300))
         // makeGuardRight(at: CGPoint(x:400, y: 300))
-        makeOuterGuardRight(at: CGPoint(x:660, y: 260))
-        makeOuterGuardLeft(at: CGPoint(x:30, y: 260))
+     //   makeOuterGuardRight(at: CGPoint(x:660, y: 260))
+      //  makeOuterGuardLeft(at: CGPoint(x:30, y: 260))
         
         
         
