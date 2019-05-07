@@ -101,7 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       //  leftFlipperCreate()
       //  makeBouder(at: CGPoint(x:675, y: 295))
         makeLauncher(at: CGPoint(x:710, y: 0))
-      //  makeSlopeRight(at: CGPoint(x:700, y: 890))
+        makeSlopeRight(at: CGPoint(x:700, y: 890))
       //  makeSlopeLeft(at: CGPoint(x:100, y: 890))
      //   makeRectangle(at: CGPoint(x: 400, y: 1045))
         // makeGuardLeft(at: CGPoint(x:100, y: 300))
@@ -213,7 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball = SKSpriteNode(imageNamed: "ball")
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
-                ball.physicsBody!.restitution = 0.4
+                ball.physicsBody!.restitution = 5000
                 ball.physicsBody!.mass = 1
                 //    ballShadow = SKSpriteNode(imageNamed: "ball")
                 //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
