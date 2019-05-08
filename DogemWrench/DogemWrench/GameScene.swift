@@ -210,7 +210,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else if objects.contains(startLabel) {
                 ballNumber += 1
                 //  rNumber = Int(arc4random_uniform(5))
-                ball = SKSpriteNode(imageNamed: "ball")
+                ball = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
                 ball.physicsBody!.restitution = 5000
