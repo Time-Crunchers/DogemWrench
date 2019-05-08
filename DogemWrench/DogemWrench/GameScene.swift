@@ -173,41 +173,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //  box.position = location
             //  addChild(box)
             let objects = nodes(at: location)
-            if objects.contains(rightLabel) {
-                //rightFlipper().run(hit)
-                //let move = SKAction.moveBy(x:0, y: 400, duration: 5)
-                spin = SKAction.rotate(byAngle: -0.3, duration: 0.01)
-                back = SKAction.rotate(byAngle: 0.3, duration: 0.1)
-                hit = SKAction.repeat(spin, count: 3)
-                backHit = SKAction.repeat(back, count: 3)
-                rightPeg.run(hit)
-                rightPeg.run(backHit)
-                if (rightTouch == true) {
-                    ball.physicsBody?.applyForce(CGVector (dx: 0, dy: 25000))
-                    // ball.physicsBody?.applyTorque(100)
-                    rightTouch = false
-                }
-                //  if objects.contains(paddles) {
-                //      editingMode = !editingMode
-                
-            } else if objects.contains(leftLabel) {
-                //rightFlipper().run(hit)
-                //let move = SKAction.moveBy(x:0, y: 400, duration: 5)
-                spin = SKAction.rotate(byAngle: 0.3, duration: 0.01)
-                back = SKAction.rotate(byAngle: -0.3, duration: 0.1)
-                hit = SKAction.repeat(spin, count: 3)
-                backHit = SKAction.repeat(back, count: 3)
-                leftPeg.run(hit)
-                leftPeg.run(backHit)
-                if (leftTouch == true) {
-                    ball.physicsBody?.applyForce(CGVector (dx: 0, dy: 25000))
-                    // ball.physicsBody?.applyTorque(-100)
-                    leftTouch = false
-                }
-                //  if objects.contains(paddles) {
-                //      editingMode = !editingMode
-                
-            } else if objects.contains(startLabel) {
+//            if objects.contains(rightLabel) {
+//                //rightFlipper().run(hit)
+//                //let move = SKAction.moveBy(x:0, y: 400, duration: 5)
+//                spin = SKAction.rotate(byAngle: -0.3, duration: 0.01)
+//                back = SKAction.rotate(byAngle: 0.3, duration: 0.1)
+//                hit = SKAction.repeat(spin, count: 3)
+//                backHit = SKAction.repeat(back, count: 3)
+//                rightPeg.run(hit)
+//                rightPeg.run(backHit)
+//                if (rightTouch == true) {
+//                    ball.physicsBody?.applyForce(CGVector (dx: 0, dy: 25000))
+//                    // ball.physicsBody?.applyTorque(100)
+//                    rightTouch = false
+//                }
+//                //  if objects.contains(paddles) {
+//                //      editingMode = !editingMode
+//
+//            } else if objects.contains(leftLabel) {
+//                //rightFlipper().run(hit)
+//                //let move = SKAction.moveBy(x:0, y: 400, duration: 5)
+//                spin = SKAction.rotate(byAngle: 0.3, duration: 0.01)
+//                back = SKAction.rotate(byAngle: -0.3, duration: 0.1)
+//                hit = SKAction.repeat(spin, count: 3)
+//                backHit = SKAction.repeat(back, count: 3)
+//                leftPeg.run(hit)
+//                leftPeg.run(backHit)
+//                if (leftTouch == true) {
+//                    ball.physicsBody?.applyForce(CGVector (dx: 0, dy: 25000))
+//                    // ball.physicsBody?.applyTorque(-100)
+//                    leftTouch = false
+//                }
+//                //  if objects.contains(paddles) {
+//                //      editingMode = !editingMode
+//
+//            } else
+            if objects.contains(startLabel) {
                 ballNumber += 1
                 //  rNumber = Int(arc4random_uniform(5))
                 ball = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
