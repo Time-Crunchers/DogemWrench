@@ -227,7 +227,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //    ballShadow.name = "ballShadow"
                 
                 addChild(ball)
-                  ball.physicsBody?.applyForce(CGVector (dx: 0, dy: -25000))
+                  ball.physicsBody?.applyForce(CGVector (dx: 0, dy: -5000))
                 startLabel.removeFromParent()
                 if (gameOver == true) {
                     gameOverLabel.removeFromParent()
