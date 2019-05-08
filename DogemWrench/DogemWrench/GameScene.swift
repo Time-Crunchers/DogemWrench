@@ -146,16 +146,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //   Flipper Buttons
         //
         //
-        rightLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
-        rightLabel.text = ("Right Flipper")
-        rightLabel.position = CGPoint(x: 640, y: 50)
-        rightLabel.zPosition = 1000
-        addChild(rightLabel)
-        leftLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
-        leftLabel.text = "Left Flipper"
-        leftLabel.position = CGPoint(x: 150, y: 50)
-        leftLabel.zPosition = 1000
-        addChild(leftLabel)
+//        rightLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+//        rightLabel.text = ("Right Flipper")
+//        rightLabel.position = CGPoint(x: 640, y: 50)
+//        rightLabel.zPosition = 1000
+//        addChild(rightLabel)
+//        leftLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+//        leftLabel.text = "Left Flipper"
+//        leftLabel.position = CGPoint(x: 150, y: 50)
+//        leftLabel.zPosition = 1000
+//        addChild(leftLabel)
         
     }
     
