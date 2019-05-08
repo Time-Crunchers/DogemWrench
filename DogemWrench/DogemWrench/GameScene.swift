@@ -214,7 +214,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
-                ball.physicsBody!.restitution = 5000
+                ball.physicsBody!.restitution = 1
+                ball.physicsBody!.affectedByGravity = false
                 ball.physicsBody!.mass = 1
                 //    ballShadow = SKSpriteNode(imageNamed: "ball")
                 //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
