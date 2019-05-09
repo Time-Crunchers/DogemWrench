@@ -216,6 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
                 ball.physicsBody!.restitution = 1
                 ball.physicsBody!.affectedByGravity = false
+                ball.physicsBody!.friction = 0.0
                 ball.physicsBody!.mass = 1
                 //    ballShadow = SKSpriteNode(imageNamed: "ball")
                 //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
