@@ -38,7 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var back: SKAction!
     var hit: SKAction!
     var backHit: SKAction!
-    var ball: SKSpriteNode!
+    var wrench: SKSpriteNode!
     var ballShadow: SKSpriteNode!
     var leftFlipper: SKSpriteNode!
     var rightFlipper: SKSpriteNode!
@@ -211,24 +211,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if objects.contains(startLabel) {
                 ballNumber += 1
                 //  rNumber = Int(arc4random_uniform(5))
-                ball = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
-                ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-                ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
-                ball.physicsBody!.restitution = 1
-                ball.physicsBody!.affectedByGravity = false
-                ball.physicsBody!.friction = 0.0
-                ball.physicsBody!.mass = 1
+                wrench = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
+                wrench.physicsBody = SKPhysicsBody(texture: wrench.texture!, size: wrench.texture!.size())
+                wrench.physicsBody!.contactTestBitMask = wrench.physicsBody!.collisionBitMask
+                wrench.physicsBody!.restitution = 1
+                wrench.physicsBody!.affectedByGravity = false
+                wrench.physicsBody!.friction = 0.0
+                wrench.physicsBody!.mass = 1
                 //    ballShadow = SKSpriteNode(imageNamed: "ball")
                 //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
                 //     ballShadow.physicsBody!.isDynamic = true
                 
-                ball.position = CGPoint(x: 710, y: 200)
-                ball.name = "ball"
+                wrench.position = CGPoint(x: 710, y: 200)
+                wrench.name = "wrench"
                 //     ballShadow.position = location
                 //    ballShadow.name = "ballShadow"
                 
-                addChild(ball)
-                  ball.physicsBody?.applyForce(CGVector (dx: 0, dy: -5000))
+                addChild(wrench)
+                  wrench.physicsBody?.applyForce(CGVector (dx: 0, dy: -5000))
                 startLabel.removeFromParent()
                 if (gameOver == true) {
                     gameOverLabel.removeFromParent()
@@ -304,10 +304,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if contact.bodyA.node?.name == "ball" {
+        if contact.bodyA.node?.name == "wrench" {
             collisionBetween(ball: contact.bodyA.node!, object: contact.bodyB.node!)
             
-        } else if contact.bodyB.node?.name == "ball" {
+        } else if contact.bodyB.node?.name == "wrench" {
             collisionBetween(ball: contact.bodyB.node!, object: contact.bodyA.node!)
             
         }
@@ -331,9 +331,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             leftTouch = true
             print("LAgatha")
         } else {
-            rightTouch = false
-            leftTouch = false
-            print("false")
+           wrench.physicsBody!.applyForce(CGVector (dx: 100000, dy: 500000))
+            print("tract")
         }
     }
     func boxCollision(box: SKNode, object: SKNode) {
