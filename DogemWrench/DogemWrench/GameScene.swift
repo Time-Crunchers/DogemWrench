@@ -100,8 +100,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       //  rightFlipperCreate()
       //  leftFlipperCreate()
       //  makeBouder(at: CGPoint(x:675, y: 295))
-        makeLauncher(at: CGPoint(x:710, y: 0))
-        makeSlopeRight(at: CGPoint(x:700, y: 890))
+        makeLauncher(at: CGPoint(x:0, y: 0))
+        makeLauncher(at: CGPoint(x:0, y: 1024))
+         makeSideLauncher(at: CGPoint(x:0, y: 500))
+      //  makeSlopeRight(at: CGPoint(x:700, y: 890))
       //  makeSlopeLeft(at: CGPoint(x:100, y: 890))
      //   makeRectangle(at: CGPoint(x: 400, y: 1045))
         // makeGuardLeft(at: CGPoint(x:100, y: 300))
@@ -214,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 wrench = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
                 wrench.physicsBody = SKPhysicsBody(texture: wrench.texture!, size: wrench.texture!.size())
                 wrench.physicsBody!.contactTestBitMask = wrench.physicsBody!.collisionBitMask
-                wrench.physicsBody!.restitution = 1
+                //wrench.physicsBody!.restitution = 1
                 wrench.physicsBody!.affectedByGravity = false
                 wrench.physicsBody!.friction = 0.0
                 wrench.physicsBody!.mass = 1
@@ -414,7 +416,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         launcher.position = position
         launcher.physicsBody = SKPhysicsBody(texture: launcher.texture!, size: launcher.texture!.size())
         launcher.physicsBody!.isDynamic = false
-        launcher.physicsBody!.restitution = CGFloat(4)
+        launcher.physicsBody!.restitution = 1
+        launcher.zPosition = 1
+        launcher.name = "launch"
+        addChild(launcher)
+    }
+    
+    func makeSideLauncher (at position: CGPoint) {
+        
+        let launcher = SKSpriteNode(imageNamed: "slotBaseGoodUp")
+        launcher.position = position
+        launcher.physicsBody = SKPhysicsBody(texture: launcher.texture!, size: launcher.texture!.size())
+        launcher.physicsBody!.isDynamic = false
+        launcher.physicsBody!.restitution = 1
         launcher.zPosition = 1
         launcher.name = "launch"
         addChild(launcher)
