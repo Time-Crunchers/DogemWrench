@@ -228,7 +228,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //    ballShadow.name = "ballShadow"
                 
                 addChild(wrench)
-                  wrench.physicsBody?.applyForce(CGVector (dx: 0, dy: -5000))
+                  wrench.physicsBody!.applyForce(CGVector (dx: 0, dy: -5000))
                 startLabel.removeFromParent()
                 if (gameOver == true) {
                     gameOverLabel.removeFromParent()
