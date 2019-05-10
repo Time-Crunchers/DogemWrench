@@ -100,9 +100,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       //  rightFlipperCreate()
       //  leftFlipperCreate()
       //  makeBouder(at: CGPoint(x:675, y: 295))
-        makeLauncher(at: CGPoint(x:0, y: 0))
-        makeLauncher(at: CGPoint(x:0, y: 1024))
-         makeSideLauncher(at: CGPoint(x:0, y: 500))
+//        makeLauncher(at: CGPoint(x:0, y: 0))
+//        makeLauncher(at: CGPoint(x:0, y: 1024))
+//         makeSideLauncher(at: CGPoint(x:0, y: 500))
+//        makeSideLauncher(at: CGPoint(x:768, y: 500))
       //  makeSlopeRight(at: CGPoint(x:700, y: 890))
       //  makeSlopeLeft(at: CGPoint(x:100, y: 890))
      //   makeRectangle(at: CGPoint(x: 400, y: 1045))
@@ -216,21 +217,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 wrench = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
                 wrench.physicsBody = SKPhysicsBody(texture: wrench.texture!, size: wrench.texture!.size())
                 wrench.physicsBody!.contactTestBitMask = wrench.physicsBody!.collisionBitMask
-                //wrench.physicsBody!.restitution = 1
+                wrench.physicsBody!.restitution = 1
                 wrench.physicsBody!.affectedByGravity = false
-                wrench.physicsBody!.friction = 0.0
-                wrench.physicsBody!.mass = 1
+                wrench.physicsBody!.friction = 0
+                wrench.physicsBody!.linearDamping = 0
+                wrench.physicsBody!.mass = 0
                 //    ballShadow = SKSpriteNode(imageNamed: "ball")
                 //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
                 //     ballShadow.physicsBody!.isDynamic = true
                 
-                wrench.position = CGPoint(x: 710, y: 200)
+                wrench.position = CGPoint(x: 675, y: 400)
                 wrench.name = "wrench"
                 //     ballShadow.position = location
                 //    ballShadow.name = "ballShadow"
                 
                 addChild(wrench)
-                  wrench.physicsBody!.applyForce(CGVector (dx: 0, dy: -5000))
+              
+                  wrench.physicsBody!.applyForce(CGVector (dx: -30000, dy: -30000))
+                
                 startLabel.removeFromParent()
                 if (gameOver == true) {
                     gameOverLabel.removeFromParent()
@@ -416,7 +420,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         launcher.position = position
         launcher.physicsBody = SKPhysicsBody(texture: launcher.texture!, size: launcher.texture!.size())
         launcher.physicsBody!.isDynamic = false
-        launcher.physicsBody!.restitution = 1
+        launcher.physicsBody!.restitution = 4
         launcher.zPosition = 1
         launcher.name = "launch"
         addChild(launcher)
@@ -428,7 +432,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         launcher.position = position
         launcher.physicsBody = SKPhysicsBody(texture: launcher.texture!, size: launcher.texture!.size())
         launcher.physicsBody!.isDynamic = false
-        launcher.physicsBody!.restitution = 1
+        launcher.physicsBody!.restitution = 4
         launcher.zPosition = 1
         launcher.name = "launch"
         addChild(launcher)
