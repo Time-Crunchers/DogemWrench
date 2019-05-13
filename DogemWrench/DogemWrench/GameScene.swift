@@ -26,7 +26,10 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     
     var scoreLabel: SKLabelNode!
     var gameOverLabel: SKLabelNode!
@@ -39,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var hit: SKAction!
     var backHit: SKAction!
     var wrench: SKSpriteNode!
+    var person: SKSpriteNode!
     var ballShadow: SKSpriteNode!
     var leftFlipper: SKSpriteNode!
     var rightFlipper: SKSpriteNode!
@@ -262,7 +266,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 //                        addChild(box)
                 //                    }
                 
+                person = SKSpriteNode(imageNamed: "robot_3Dyellow")
+                person.physicsBody = SKPhysicsBody(texture: wrench.texture!, size: wrench.texture!.size())
+                person.physicsBody!.contactTestBitMask = wrench.physicsBody!.collisionBitMask
+                person.physicsBody!.restitution = 1
+                person.physicsBody!.affectedByGravity = false
+                person.physicsBody!.friction = 0
+                person.physicsBody!.linearDamping = 0
+                person.physicsBody!.mass = 0
+                //    ballShadow = SKSpriteNode(imageNamed: "ball")
+                //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
+                //     ballShadow.physicsBody!.isDynamic = true
                 
+                person.position = CGPoint(x: 0, y: 0)
+                person.name = "person"
+                //     ballShadow.position = location
+                //    ballShadow.name = "ballShadow"
+                
+                addChild(wrench)
+                
+                wrench.physicsBody!.applyForce(CGVector (dx: -30000, dy: -30000))
+                
+                startLabel.removeFromParent()
             }
         }
     }
