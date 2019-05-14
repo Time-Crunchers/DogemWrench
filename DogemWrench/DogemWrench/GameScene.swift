@@ -26,10 +26,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    @IBOutlet weak var upButton: UIButton!
-    @IBOutlet weak var downButton: UIButton!
-    @IBOutlet weak var leftButton: UIButton!
-    @IBOutlet weak var rightButton: UIButton!
+
     
     var scoreLabel: SKLabelNode!
     var gameOverLabel: SKLabelNode!
@@ -94,30 +91,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         
-      //  makeSlot(at: CGPoint(x: 450, y: 0), isGood: false)
-        
-      //  makeBouncer(at: CGPoint(x:500, y: 650))
-      //  makeBouncer(at: CGPoint(x:250, y: 650))
-       // makeBouncer(at: CGPoint(x:375, y: 800))
-        
-        
-      //  rightFlipperCreate()
-      //  leftFlipperCreate()
-      //  makeBouder(at: CGPoint(x:675, y: 295))
-//        makeLauncher(at: CGPoint(x:0, y: 0))
-//        makeLauncher(at: CGPoint(x:0, y: 1024))
-//         makeSideLauncher(at: CGPoint(x:0, y: 500))
-//        makeSideLauncher(at: CGPoint(x:768, y: 500))
-      //  makeSlopeRight(at: CGPoint(x:700, y: 890))
-      //  makeSlopeLeft(at: CGPoint(x:100, y: 890))
-     //   makeRectangle(at: CGPoint(x: 400, y: 1045))
-        // makeGuardLeft(at: CGPoint(x:100, y: 300))
-        // makeGuardRight(at: CGPoint(x:400, y: 300))
-     //   makeOuterGuardRight(at: CGPoint(x:660, y: 260))
-      //  makeOuterGuardLeft(at: CGPoint(x:30, y: 260))
-        
-        
-        
         
         //
         //   Create Score
@@ -174,11 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if let touch = touches.first {
             let location = touch.location(in: self)
-            // if location.contains(CGPoint(x: 300, y: 300)) {
-            //  let box = SKSpriteNode(color: UIColor.black, size: CGSize(width: 64, height: 64))
-            //  box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-            //  box.position = location
-            //  addChild(box)
+          
             let objects = nodes(at: location)
 //            if objects.contains(rightLabel) {
 //                //rightFlipper().run(hit)
@@ -217,7 +186,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            } else
             if objects.contains(startLabel) {
                 ballNumber += 1
-                //  rNumber = Int(arc4random_uniform(5))
                 wrench = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
                 wrench.physicsBody = SKPhysicsBody(texture: wrench.texture!, size: wrench.texture!.size())
                 wrench.physicsBody!.contactTestBitMask = wrench.physicsBody!.collisionBitMask
@@ -226,14 +194,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 wrench.physicsBody!.friction = 0
                 wrench.physicsBody!.linearDamping = 0
                 wrench.physicsBody!.mass = 0
-                //    ballShadow = SKSpriteNode(imageNamed: "ball")
-                //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
-                //     ballShadow.physicsBody!.isDynamic = true
                 
                 wrench.position = CGPoint(x: 675, y: 400)
                 wrench.name = "wrench"
-                //     ballShadow.position = location
-                //    ballShadow.name = "ballShadow"
                 
                 addChild(wrench)
               
@@ -244,67 +207,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     gameOverLabel.removeFromParent()
                     gameOver = false
                 }
-                //   addChild(ballShadow)
-                
-                // }
-                //                if editingMode {
-                //                    currentBox = false
-                //                    for object in objects {
-                //                        if object.name == "box" {
-                //                            currentBox = true
-                //                            removeBarrier(box: object)
-                //                        }
-                //                    }
-                //                    if !currentBox {
-                //                        let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(), height: 16)
-                //                        let box = SKSpriteNode(color: RandomColor(), size: size)
-                //                        box.zRotation = RandomCGFloat(min: 0, max: 3)
-                //                        box.position = location
-                //                        box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
-                //                        box.physicsBody!.isDynamic = false
-                //                        box.name = "box"
-                //                        addChild(box)
-                //                    }
                 
                 person = SKSpriteNode(imageNamed: "robot_3Dyellow")
-                person.physicsBody = SKPhysicsBody(texture: wrench.texture!, size: wrench.texture!.size())
+                person.physicsBody = SKPhysicsBody(texture: person.texture!, size: person.texture!.size())
                 person.physicsBody!.contactTestBitMask = wrench.physicsBody!.collisionBitMask
                 person.physicsBody!.restitution = 1
                 person.physicsBody!.affectedByGravity = false
                 person.physicsBody!.friction = 0
                 person.physicsBody!.linearDamping = 0
                 person.physicsBody!.mass = 0
-                //    ballShadow = SKSpriteNode(imageNamed: "ball")
-                //    ballShadow.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0 + 10)
-                //     ballShadow.physicsBody!.isDynamic = true
                 
-                person.position = CGPoint(x: 0, y: 0)
+                person.position = CGPoint(x: 500, y: 500)
                 person.name = "person"
-                //     ballShadow.position = location
-                //    ballShadow.name = "ballShadow"
                 
-                addChild(wrench)
+                addChild(person)
                 
-                wrench.physicsBody!.applyForce(CGVector (dx: -30000, dy: -30000))
                 
-                startLabel.removeFromParent()
+                
+               
             }
         }
     }
     
-    //
-    //  Middle pointers
-    //
-    //
-    func makeBouncer (at position: CGPoint) {
-        let bouncer = SKSpriteNode(imageNamed: "bumperCircle1")
-        bouncer.position = position
-        bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2)
-        bouncer.physicsBody!.isDynamic = false
-        bouncer.physicsBody!.restitution = 2
-        bouncer.name = "good"
-        addChild(bouncer)
-    }
     
     //
     //  Create Bottom Item
@@ -348,8 +272,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //
     //
     func collisionBetween(ball: SKNode, object: SKNode) {
-        if object.name == "good" {
-            score += 100
+        if object.name == "person" {
+            destroy(ball: ball)
             
         } else if object.name == "bad" {
             // score -= 1
@@ -384,13 +308,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         ball.removeFromParent()
         
-        if (ballNumber < 3) {
-            startLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
-            startLabel.text = "Press to Start"
-            startLabel.horizontalAlignmentMode = .right
-            startLabel.position = CGPoint(x: 475, y: 500)
-            addChild(startLabel)
-        } else {
+//        if (ballNumber < 3) {
+//            startLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+//            startLabel.text = "Press to Start"
+//            startLabel.horizontalAlignmentMode = .right
+//            startLabel.position = CGPoint(x: 475, y: 500)
+//            addChild(startLabel)
+//        } else {
             gameOverLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
             gameOverLabel.text = "Game Over"
             gameOverLabel.horizontalAlignmentMode = .right
@@ -405,7 +329,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             score = 0
             gameOver = true
             
-        }
+//        }
         
     }
     
