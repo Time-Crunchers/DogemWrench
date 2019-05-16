@@ -200,7 +200,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 addChild(wrench)
               
-                  wrench.physicsBody!.applyForce(CGVector (dx: -30000, dy: -30000))
+                  wrench.physicsBody!.applyForce(CGVector (dx: -300000, dy: -300000))
                 
                 startLabel.removeFromParent()
                 if (gameOver == true) {
