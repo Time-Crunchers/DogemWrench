@@ -26,11 +26,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> fb64b7ca8bd2a4d4076acded5b147a96da47dfcd
     
     var scoreLabel: SKLabelNode!
     var gameOverLabel: SKLabelNode!
