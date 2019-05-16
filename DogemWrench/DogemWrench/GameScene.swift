@@ -49,13 +49,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var rNumber: Int = 2
     var ballNumber: Int = 0 {
         didSet {
-            ballLabel.text = "Ball: \(ballNumber)"
+           // ballLabel.text = "Ball: \(ballNumber)"
             
         }
     }
     var score: Int = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+           // scoreLabel.text = "Score: \(score)"
             rNumber = Int(arc4random_uniform(5))
             print(rNumber)
         }
@@ -65,6 +65,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var rightLabel: SKLabelNode!
     var leftLabel: SKLabelNode!
+    var upLabel: SKLabelNode!
+    var downLabel: SKLabelNode!
     var editingMode: Bool = false {
         didSet {
             if editingMode {
@@ -92,25 +94,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        //
-        //   Create Score
-        //
-        //
-        scoreLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
-        scoreLabel.text = "Score: 0"
-        scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = CGPoint(x: 430, y: 900)
-        addChild(scoreLabel)
-        
-        //
-        //   Create Ball Count
-        //
-        //
-        ballLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
-        ballLabel.text = "Ball: 0"
-        ballLabel.horizontalAlignmentMode = .right
-        ballLabel.position = CGPoint(x: 425, y: 960)
-        addChild(ballLabel)
+//        //
+//        //   Create Score
+//        //
+//        //
+//        scoreLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+//        scoreLabel.text = "Score: 0"
+//        scoreLabel.horizontalAlignmentMode = .right
+//        scoreLabel.position = CGPoint(x: 430, y: 900)
+//        addChild(scoreLabel)
+//
+//        //
+//        //   Create Ball Count
+//        //
+//        //
+//        ballLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+//        ballLabel.text = "Ball: 0"
+//        ballLabel.horizontalAlignmentMode = .right
+//        ballLabel.position = CGPoint(x: 425, y: 960)
+//        addChild(ballLabel)
         
         //
         //   Create Start
@@ -126,16 +128,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //   Flipper Buttons
         //
         //
-//        rightLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
-//        rightLabel.text = ("Right Flipper")
-//        rightLabel.position = CGPoint(x: 640, y: 50)
-//        rightLabel.zPosition = 1000
-//        addChild(rightLabel)
-//        leftLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
-//        leftLabel.text = "Left Flipper"
-//        leftLabel.position = CGPoint(x: 150, y: 50)
-//        leftLabel.zPosition = 1000
-//        addChild(leftLabel)
+        rightLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+        rightLabel.text = "Right"
+        rightLabel.position = CGPoint(x: 250, y: 75)
+        rightLabel.zPosition = 1000
+        addChild(rightLabel)
+        leftLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+        leftLabel.text = "Left"
+        leftLabel.position = CGPoint(x: 100, y: 75)
+        leftLabel.zPosition = 1000
+        addChild(leftLabel)
+        upLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+        upLabel.text = "Up"
+        upLabel.position = CGPoint(x: 175, y: 125)
+        upLabel.zPosition = 1000
+        addChild(upLabel)
+        downLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
+        downLabel.text = "Down"
+        downLabel.position = CGPoint(x: 175, y: 25)
+        downLabel.zPosition = 1000
+        addChild(downLabel)
         
     }
     
@@ -149,42 +161,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.location(in: self)
           
             let objects = nodes(at: location)
-//            if objects.contains(rightLabel) {
-//                //rightFlipper().run(hit)
-//                //let move = SKAction.moveBy(x:0, y: 400, duration: 5)
-//                spin = SKAction.rotate(byAngle: -0.3, duration: 0.01)
-//                back = SKAction.rotate(byAngle: 0.3, duration: 0.1)
-//                hit = SKAction.repeat(spin, count: 3)
-//                backHit = SKAction.repeat(back, count: 3)
-//                rightPeg.run(hit)
-//                rightPeg.run(backHit)
-//                if (rightTouch == true) {
-//                    ball.physicsBody?.applyForce(CGVector (dx: 0, dy: 25000))
-//                    // ball.physicsBody?.applyTorque(100)
-//                    rightTouch = false
-//                }
-//                //  if objects.contains(paddles) {
-//                //      editingMode = !editingMode
-//
-//            } else if objects.contains(leftLabel) {
-//                //rightFlipper().run(hit)
-//                //let move = SKAction.moveBy(x:0, y: 400, duration: 5)
-//                spin = SKAction.rotate(byAngle: 0.3, duration: 0.01)
-//                back = SKAction.rotate(byAngle: -0.3, duration: 0.1)
-//                hit = SKAction.repeat(spin, count: 3)
-//                backHit = SKAction.repeat(back, count: 3)
-//                leftPeg.run(hit)
-//                leftPeg.run(backHit)
-//                if (leftTouch == true) {
-//                    ball.physicsBody?.applyForce(CGVector (dx: 0, dy: 25000))
-//                    // ball.physicsBody?.applyTorque(-100)
-//                    leftTouch = false
-//                }
-//                //  if objects.contains(paddles) {
-//                //      editingMode = !editingMode
-//
-//            } else
-            if objects.contains(startLabel) {
+            if objects.contains(rightLabel) {
+                   spin = SKAction.move(by: CGVector (dx: 30, dy: 0), duration: 0.1)
+                hit = SKAction.repeat(spin, count: 3)
+                   person.run(hit)
+            } else if objects.contains(leftLabel) {
+                spin = SKAction.move(by: CGVector (dx: -20, dy: 0), duration: 0.1)
+                hit = SKAction.repeat(spin, count: 3)
+                person.run(hit)
+                
+            } else if objects.contains(upLabel) {
+                spin = SKAction.move(by: CGVector (dx: 0, dy: 20), duration: 0.1)
+                hit = SKAction.repeat(spin, count: 3)
+                person.run(hit)
+                
+            } else if objects.contains(downLabel) {
+                spin = SKAction.move(by: CGVector (dx: 0, dy: -20), duration: 0.1)
+                hit = SKAction.repeat(spin, count: 3)
+                person.run(hit)
+            } else if objects.contains(startLabel) {
                 ballNumber += 1
                 wrench = SKSpriteNode(imageNamed: "Wrench-PNG-Transparent-Image")
                 wrench.physicsBody = SKPhysicsBody(texture: wrench.texture!, size: wrench.texture!.size())
@@ -200,7 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 addChild(wrench)
               
-                  wrench.physicsBody!.applyForce(CGVector (dx: -300000, dy: -300000))
+                  wrench.physicsBody!.applyForce(CGVector (dx: -60000, dy: -60000))
                 
                 startLabel.removeFromParent()
                 if (gameOver == true) {
@@ -307,6 +302,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(fireParticles)
         }
         ball.removeFromParent()
+        person.removeFromParent()
         
 //        if (ballNumber < 3) {
 //            startLabel = SKLabelNode(fontNamed: "DINCondensed-Bold ")
